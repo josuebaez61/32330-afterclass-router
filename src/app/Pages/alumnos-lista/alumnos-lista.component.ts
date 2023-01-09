@@ -27,12 +27,16 @@ agregaAlumno() {
   const dialog = this.dialogService.open(AlumnosDialogComponent)
 
   dialog.afterClosed().subscribe((value) => {
+    console.log(value)
     if (value) {
-       const lastId = this.Alumnos[this.Alumnos.length - 1]?.id
-       // Esto No! this.AlumnosToolbar.push(new Alumno(lastId + 1,value.nombre,value.apellido,value.fecha_nacimiento,true))
-       this.Alumnos = [...this.Alumnos, new Alumno(lastId + 1,value.nombre,value.apellido,true)];   
+      const lastId = this.Alumnos[this.Alumnos.length - 1]?.id;
+      // Esto No! this.AlumnosToolbar.push(new Alumno(lastId + 1,value.nombre,value.apellido,value.fecha_nacimiento,true))
+      this.Alumnos = [
+        ...this.Alumnos,
+        new Alumno(lastId + 1, value.nombre, value.apellido, true),
+      ];
     }
-      })
+    })
   }
 
   eliminaAlumno(alumno: Alumno) {

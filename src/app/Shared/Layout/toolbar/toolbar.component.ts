@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { AlumnosDialogComponent } from '../../Component/alumnos-dialog/alumnos-dialog.component';
-import { Alumno } from 'src/app/Models/alumnos_modelo';
-import { AlumnosListaComponent } from 'src/app/Page/alumnos-lista/alumnos-lista.component';
 
 @Component({
   selector: 'app-toolbar',

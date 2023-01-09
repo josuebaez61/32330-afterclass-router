@@ -1,0 +1,50 @@
+<!-- Hola Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt repellendus illum consectetur ipsam laboriosam magni necessitatibus vero quos, quo molestias, atque quam quibusdam sapiente ea minima ratione inventore tempora placeat. -->
+
+<table mat-table [dataSource]="Alumnos" style="height: 90% !important">
+  <ng-container matColumnDef="id">
+    <th appFont mat-header-cell *matHeaderCellDef>#.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th appFont mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">
+      {{element | conversor : element.id ? 'conversor' : null}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="apellido">
+    <th appFont mat-header-cell *matHeaderCellDef>Apellido</th>
+    <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="aprobado">
+    <th appFont mat-header-cell *matHeaderCellDef>Aprobado</th>
+    <td mat-cell *matCellDef="let element">{{ element.aprobado }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="editar">
+    <th appFont mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="editarAlumno(element)" mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrar">
+    <th appFont mat-header-cell *matHeaderCellDef>Borrar</th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="eliminaAlumno(element)" mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<br />
+<button mat-flat-button color="primary" (click)="agregaAlumno()">
+  Agrega Alumno
+</button>
